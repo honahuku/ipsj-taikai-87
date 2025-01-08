@@ -1,3 +1,4 @@
+all: gen-d
 gen-d:
 	docker compose build --parallel
 	docker compose up -d
