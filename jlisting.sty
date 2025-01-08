@@ -1,3 +1,10 @@
+\NeedsTeXFormat{LaTeX2e}
+\def\filedate{2006/02/20}
+\def\fileversion{0.2}
+\ProvidesPackage{jlisting}[\filedate\space\fileversion\space(Thor)]
+%
+\newcount\lst@nextchar
+\let\lst@@ProcessSpace\lst@ProcessSpace
 \def\lst@ProcessSpace#1{%
    \lst@check@chartype{#1}%
       \lst@@ProcessSpace
@@ -70,7 +77,7 @@
    \lst@get@filecontents@loop
    \closein\lst@inputfile
    \lst@filecontents\empty}
-   \def\lst@get@filecontents@loop{%
+\def\lst@get@filecontents@loop{%
    \read\lst@inputfile to\@lst@get@filecontents@currline
    \ifx\@lst@get@filecontents@prevline\relax\else
       \expandafter\expandafter\expandafter\def
@@ -90,8 +97,8 @@
    \else
       \expandafter\lst@check@chartype@BOL
    \fi}
-   \def\lst@BOLGobble@#1{%
-\let\lst@next#1%
+\def\lst@BOLGobble@#1{%
+   \let\lst@next#1%
    \ifx \lst@next\relax\else
    \ifx \lst@next\lst@MProcessListing\else
    \ifx \lst@next\lst@ProcessFormFeed\else
