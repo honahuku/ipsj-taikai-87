@@ -1,0 +1,205 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                       %
+%  情報処理学会全国大会投稿論文用テンプレートファイル   %
+%                   for ips.sty ver2.1                  %
+%                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% ver2.1 +
+%%% edited by Jutori
+%%% modified by Kenta
+
+\documentclass[a4paper,9pt, twocolumn]{jarticle}
+% pngなどをそのまま使うためのusepackage
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{bmpsize}
+% [H]などで位置調整するためのusepackage
+\usepackage{float}
+% 表関連
+\usepackage{amssymb, amsmath}
+\usepackage{booktabs}
+% コードブロック関連 jlistingにより日本語コメントアウトでも崩れないようにできる
+\usepackage{listings,jlisting,here}
+% コードの書式
+\lstset{
+    basicstyle={\scriptsize\ttfamily},
+    identifierstyle={\scriptsize},
+    commentstyle={\scriptsize\itshape},
+    keywordstyle={\scriptsize\bfseries},
+    ndkeywordstyle={\scriptsize},
+    stringstyle={\scriptsize\ttfamily},
+    frame={tb},
+    breaklines=true,
+    columns=[l]{fullflexible},
+    numbers=left,
+    xrightmargin=0zw,
+    xleftmargin=3zw,
+    numberstyle={\tiny},
+    stepnumber=1,
+    numbersep=1zw,
+    lineskip=-0.5ex,
+    captionpos=b
+}
+% ソースコードと図番号を共通の連番にする
+\makeatletter
+\AtBeginDocument{%
+	\let\c@figure\c@lstlisting
+	\let\thefigure\thelstlisting
+	\let\ftype@lstlisting\ftype@figure
+}
+\makeatother
+\makeatletter
+\AtBeginDocument{
+	\renewcommand*{\thelstlisting}{\arabic{lstlisting}}
+	% \@addtoreset{lstlisting}{chapter}
+}
+\makeatother
+\renewcommand{\lstlistingname}{図} % ソースコードでなく図とする
+
+\newcommand{\ri}[1]{図 \ref{#1}}
+\newcommand{\ti}[1]{表 \ref{#1}}
+
+%\documentclass[a4paper,9pt,twocolumn]{ipsjpapers}
+\usepackage{ips}
+\usepackage{mediabb}
+
+\renewcommand{\baselinestretch}{0.87}   % 行間
+
+\pagestyle{empty}
+%%%%%%    TEXT START    %%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%　ヘッダ　%%%%%%%%%%%%%%%%%%%%%%%%%%
+\twocolumn[%
+	\begin{center}
+
+		%--------------------------------------------------------------
+		% 講演タイトル（2行にわたるときは\2jtitle{}{}{}）
+		%--------------------------------------------------------------
+
+		\vspace{-3mm}
+		\jtitle{改訂版ブルーム・タキソノミー」を利用した}
+		\jtitle{「ソフトウェアドキュメンテーションの改善手法の提案}
+
+		%--------------------------------------------------------------
+		% 日本語著者名
+		%--------------------------------------------------------------
+		% name{1}{***} : 所属１の氏名
+		% name{2}{***} : 所属２の氏名　のようにする．所属の引数は４まで
+		% 名前は絶対間違えないように
+
+		\begin{authors}
+			\name{1}{山川 陽亮}
+			\name{2}{金城 篤史}
+		\end{authors}
+		%--------------------------------------------------------------
+		% 所属
+		%--------------------------------------------------------------
+		% aff{1}{***} : 所属１
+		% aff{2}{***} : 所属２　のようにする．所属の引数は４まで.
+
+		\begin{affiliation}
+			\aff{1}{ピクシブ株式会社}
+			\aff{2}{沖縄工業高等専門学校}
+		\end{affiliation}
+
+		%--------------------------------------------------------------
+	\end{center}
+]%
+
+%%%%%%%%%%%%%%%%%%%%%%%%　   脚注  　%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%--------------------------------------------------------------
+% 英文タイトル
+%--------------------------------------------------------------
+
+\etitle{Applying the Revised Bloom's Taxonomy to Improve Software Documentation}
+
+
+%--------------------------------------------------------------
+% 英語語著者名
+%--------------------------------------------------------------
+% ename{1}{***} : 所属１の氏名
+% ename{2}{***} : 所属２の氏名　のようにする．
+
+\ename{1}{Yosuke Yamakawa}
+\ename{2}{Atsushi KINJO}
+%ename{2}を使う場合，所属１の人と２の人で改行されてしまうので，\enameをコメントアウトして以下のように直接書くのをおすすめ (空白は適宜調節のこと)
+%ただし所属が３の場合は†††でなく‡となるので，\ddagと付けること
+%\footnotetext{%
+%    \hspace{-3mm}\raise1ex\hbox{{\scriptsize \dag}}First Last,%
+%    \hspace{1.5mm}\raise1ex\hbox{{\scriptsize \dag}}First Last,%
+%    \hspace{1.5mm}\raise1ex\hbox{{\scriptsize \dag\dag}}First Last,%
+%    \hspace{1.5mm}\raise1ex\hbox{{\scriptsize \ddag}}First Last,%
+%}
+%\footnotetext{%
+%    \hspace{-1mm}\raise1ex\hbox{{\scriptsize \dag\dag}}First Last and%
+%    \hspace{1mm}\raise1ex\hbox{{\scriptsize \dag\dag}}First Last%
+%}
+
+
+%--------------------------------------------------------------
+% 英語所属
+%--------------------------------------------------------------
+% eaff{1}{***} : 所属１
+% eaff{2}{***} : 所属２　のようにする．所属の引数は４まで.
+% ※日本語の所属と対応させること．
+\eaff{1}{pixiv Inc.}
+\eaff{2}{Okinawa National College of Technology}
+
+
+%--------------------------------------------------------------
+% 英語住所
+%--------------------------------------------------------------
+
+
+
+% 上マージン30mm 下25mm 横20mm 段組の間隔 7mm
+% 印刷した後，自分で確認すること
+
+% 論文トップ https://www.notion.so/confeito/86-8d5e088959534651ba5baf7d0c47dff1
+% 構成案 https://www.notion.so/confeito/c0bc2fa525dc4cabafa1c4822503599d#8d65339a42e849498c83ff0a0576c612
+% 先輩事例 https://www.notion.so/confeito/103284b3f8aa404c88751d26b6f67a64
+
+%%%%%%%%%%%%%%%%%%%%%%%%　ここから本文　%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{tex/1}
+
+\input{tex/2}
+
+\input{tex/3}
+
+\input{tex/4}
+
+\input{tex/5}
+
+\input{tex/6}
+
+\renewcommand{\baselinestretch}{0.83}\selectfont
+\vspace{-0.5mm}
+
+%
+% ------ 参考文献 ------
+%
+\begin{thebibliography}{9}
+	\itemsep -1.7pt
+
+	\bibitem{bib:nakao}
+	{\small 中尾 桂子:
+		\newblock「発問」に基づく授業デザイン振り返りの試み : 改訂版タキソノミーを援用した教師のためのCan-Doリストの開発にむけて,
+		\newblock 大妻女子大学紀要. 文系 = Otsuma Women's University annual report. Humanities and social sciences,
+		\newblock Vol.52,
+		\newblock pp.185–200,
+		\newblock 2020.}
+
+	\bibitem{bib:miyahara}
+	{\small '宮原 史, 堤 盛人':      % 丁寧
+		\newblock 戦略的な人材育成の実現に向けた道路橋を維持管理する技術力の解明の試み ―ブルーム・タキソノミーの応用―,
+		\newblock 土木学会論文集Ｆ４（建設マネジメント）,
+		\newblock Vol.76,
+		\newblock No.1,
+		\newblock pp.14-28,
+		\newblock 2020.}
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,4 @@
+build/*
+!build/zenkoku.pdf
+# platexで-output-dirオプションをしてもindent.logだけ出てくるらしい
+indent.log
