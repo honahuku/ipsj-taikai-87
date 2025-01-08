@@ -20,6 +20,7 @@ Applying the Revised Bloom's Taxonomy to Improve Software Documentation
 
 ## Docker を用いた pdf の生成
 
-```shell
-make
+```sh
+# make だけでも出来てそうな気がするがたまにコケてそう
+make gen-d
 ```
