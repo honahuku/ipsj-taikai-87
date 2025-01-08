@@ -1,47 +1,40 @@
-\NeedsTeXFormat{LaTeX2e}
-\def\filedate{2006/02/20}
-\def\fileversion{0.2}
-\ProvidesPackage{jlisting}[\filedate\space\fileversion\space(Thor)]
-%
-\newcount\lst@nextchar
-\let\lst@@ProcessSpace\lst@ProcessSpace
 \def\lst@ProcessSpace#1{%
-\lst@check@chartype{#1}%
-\lst@@ProcessSpace
-\lst@whitespacetrue}
+   \lst@check@chartype{#1}%
+      \lst@@ProcessSpace
+      \lst@whitespacetrue}
 \let\lst@@ProcessLetter\lst@ProcessLetter
 \def\lst@ProcessLetter#1#2{%
-\lst@check@chartype{#2}%
-{\lst@@ProcessLetter{#1}}%
-\relax}
+   \lst@check@chartype{#2}%
+      {\lst@@ProcessLetter{#1}}%
+      \relax}
 \let\lst@@ProcessDigit\lst@ProcessDigit
 \def\lst@ProcessDigit#1#2{%
-\lst@check@chartype{#2}%
-{\lst@@ProcessDigit{#1}}%
-\relax}
+   \lst@check@chartype{#2}%
+      {\lst@@ProcessDigit{#1}}%
+      \relax}
 \let\lst@@ProcessOther\lst@ProcessOther
 \def\lst@ProcessOther#1#2{%
-\lst@check@chartype{#2}%
-{\lst@@ProcessOther{#1}}%
-\relax}
+   \lst@check@chartype{#2}%
+      {\lst@@ProcessOther{#1}}%
+      \relax}
 \let\lst@@ProcessTabulator\lst@ProcessTabulator
 \def\lst@ProcessTabulator#1{%
-\lst@check@chartype{#1}%
-\lst@@ProcessTabulator
-\relax}
+   \lst@check@chartype{#1}%
+      \lst@@ProcessTabulator
+      \relax}
 \def\lst@check@chartype#1#2#3{%
-\edef\@tempa{\lst@nextchar=`\string#1\relax}%
-\afterassignment\remove@to@nnil
-\@tempa\@nnil
-#2%
-\ifnum\lst@nextchar<\@cclvi
+   \edef\@tempa{\lst@nextchar=`\string#1\relax}%
+   \afterassignment\remove@to@nnil
+   \@tempa\@nnil
+   #2%
+   \ifnum\lst@nextchar<\@cclvi
       #3%
    \else
       \lst@ifletter \else \lst@OutputOther \fi
-   \lst@whitespacefalse
-   \expandafter\lst@AppendJchar
+      \lst@whitespacefalse
+      \expandafter\lst@AppendJchar
    \fi
-#1}
+   #1}
 \def\lst@AppendJchar#1#2{%
    \lst@check@chartype{#2}%
       {\advance\lst@length\@ne\lst@Append{#1}}%
@@ -54,7 +47,7 @@
       \lst@whitespacefalse
       \expandafter\lst@AppendJchar
    \fi
-#1}
+   #1}
 \def\lst@InputListing#1{%
    \begingroup
       \lsthk@PreSet \gdef\lst@intname{#1}%
@@ -71,13 +64,13 @@
    \endgroup}
 \newread\lst@inputfile
 \def\lst@get@filecontents#1{%
-\let\lst@filecontents\@empty
-\openin\lst@inputfile=#1\relax
-\let\@lst@get@filecontents@prevline\relax
-\lst@get@filecontents@loop
-\closein\lst@inputfile
-\lst@filecontents\empty}
-\def\lst@get@filecontents@loop{%
+   \let\lst@filecontents\@empty
+   \openin\lst@inputfile=#1\relax
+   \let\@lst@get@filecontents@prevline\relax
+   \lst@get@filecontents@loop
+   \closein\lst@inputfile
+   \lst@filecontents\empty}
+   \def\lst@get@filecontents@loop{%
    \read\lst@inputfile to\@lst@get@filecontents@currline
    \ifx\@lst@get@filecontents@prevline\relax\else
       \expandafter\expandafter\expandafter\def
@@ -98,7 +91,7 @@
       \expandafter\lst@check@chartype@BOL
    \fi}
    \def\lst@BOLGobble@#1{%
-   \let\lst@next#1%
+\let\lst@next#1%
    \ifx \lst@next\relax\else
    \ifx \lst@next\lst@MProcessListing\else
    \ifx \lst@next\lst@ProcessFormFeed\else
@@ -137,7 +130,7 @@
 %  キャプションとソースコード目次に対する日本語対応
 \def\lstlistingname{ソースコード}
 \def\lstlistlistingname{ソースコード目次}
-% \end{修正事項}
+%   \end{修正事項}
 \endinput
 % 
 %#!platex
@@ -207,7 +200,7 @@
  \item[ver.~0.1(2004/03/24)]
    とりあえず公開．
  \item[ver.~0.2(2006/02/20)]
- \verb|\lst@breakProcessOther|命令の定義の追加．
+   \verb|\lst@breakProcessOther|命令の定義の追加．
 \end{description}
 
 \section{ソースコード}
