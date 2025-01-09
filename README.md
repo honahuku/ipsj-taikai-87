@@ -19,7 +19,7 @@ Applying the Revised Bloom's Taxonomy to Improve Software Documentation
 ```
 
 ## Docker を用いた pdf の生成
-
+`/build` ディレクトリに pdf が生成される
 ```sh
 make pre-build
 make
