@@ -160,6 +160,8 @@
 % 印刷した後，自分で確認すること
 
 %%%%%%%%%%%%%%%%%%%%%%%%　ここから本文　%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 脚注番号は数字で振る
+\renewcommand{\thefootnote}{*\arabic{footnote}}
 \input{tex/1}
 
 \input{tex/2}
@@ -180,6 +182,15 @@
 %
 \begin{thebibliography}{9}
 	\itemsep -1.7pt
+
+	\bibitem{bib:ozawa}
+	{\small '小沢 暢, 松野 裕':
+	\newblock ソフトウェア開発プロジェクトにおける引き継ぎプロセス及びドキュメント作成手順の提案と評価,
+	\newblock 実践的IT教育シンポジウム rePiT 論文集,
+	\newblock Vol.2023,
+	\newblock No.0,
+	\newblock pp.93-100,
+	\newblock 2023.}
 
 	\bibitem{bib:nakao}
 	{\small 中尾 桂子:
